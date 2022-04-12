@@ -2,14 +2,14 @@ import 'package:acs_staff/styles/acs_colors.dart';
 import 'package:acs_staff/styles/acs_typhoghraphy.dart';
 import 'package:flutter/material.dart';
 
-class RegisterScheduleScreen extends StatefulWidget {
-  const RegisterScheduleScreen({Key? key}) : super(key: key);
+class EditSchedule extends StatefulWidget {
+  const EditSchedule({Key? key}) : super(key: key);
 
   @override
-  State<RegisterScheduleScreen> createState() => _RegisterScheduleScreenState();
+  State<EditSchedule> createState() => _EditScheduleState();
 }
 
-class _RegisterScheduleScreenState extends State<RegisterScheduleScreen> {
+class _EditScheduleState extends State<EditSchedule> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,71 +20,7 @@ class _RegisterScheduleScreenState extends State<RegisterScheduleScreen> {
             automaticallyImplyLeading: false,
             elevation: 0,
             centerTitle: true,
-            actions: [
-              IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    useSafeArea: true,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text(
-                          'Bạn xác nhận thoát khỏi giao diện lịch biểu?',
-                          style: ACSTyphoghraphy.confirmHeading
-                              .copyWith(fontSize: 20),
-                          textAlign: TextAlign.center,
-                        ),
-                        actionsAlignment: MainAxisAlignment.spaceAround,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(24)),
-                        ),
-                        insetPadding:
-                            const EdgeInsets.symmetric(horizontal: 22),
-                        contentPadding: const EdgeInsets.all(16),
-                        actionsPadding: const EdgeInsets.only(bottom: 16),
-                        actions: [
-                          ElevatedButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child:
-                                Text('Hủy', style: ACSTyphoghraphy.buttonTitle),
-                            style: ElevatedButton.styleFrom(
-                              primary: ACSColors.primary,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              elevation: 5,
-                              minimumSize: const Size(130, 42),
-                            ),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Đồng ý',
-                                style: ACSTyphoghraphy.buttonTitle),
-                            style: ElevatedButton.styleFrom(
-                              primary: ACSColors.primary,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              elevation: 5,
-                              minimumSize: const Size(130, 42),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                icon: Image.asset(
-                  'assets/icons/close-square.png',
-                  color: ACSColors.white,
-                  height: 40,
-                  width: 40,
-                ),
-              ),
-            ],
-            title: const Text('Đăng ký lịch biểu',
+            title: const Text('Thay đổi lịch biểu',
                 style: ACSTyphoghraphy.titleAppbar),
           ),
           body: SizedBox(

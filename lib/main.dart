@@ -1,5 +1,4 @@
-import 'package:acs_staff/schedule/register_schedule.dart';
-import 'package:acs_staff/schedule/schedule.dart';
+import 'package:acs_staff/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const ScheduleScreen(),
+      debugShowCheckedModeBanner: false,
+      home: const BuildBottomNavBar(),
     );
   }
 }
