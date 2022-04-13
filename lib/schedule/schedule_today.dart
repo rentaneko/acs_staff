@@ -15,6 +15,11 @@ class _ScheduleTodayState extends State<ScheduleToday> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ACSColors.background,
+        appBar: AppBar(
+          backgroundColor: ACSColors.primary,
+          title: const Text('Current Day', style: ACSTyphoghraphy.titleAppbar),
+          centerTitle: true,
+        ),
         body: SingleChildScrollView(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
@@ -22,32 +27,34 @@ class _ScheduleTodayState extends State<ScheduleToday> {
             child: Column(
               children: [
                 const SizedBox(height: 30),
-                const Text('Ngày 12/04/2022',
-                    style: ACSTyphoghraphy.homeHeading),
-                const SizedBox(height: 30),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: ACSColors.primary),
                   ),
-                  padding: const EdgeInsets.all(16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   margin:
                       const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text('Tên khách hàng: Uyên',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text('Số điện thoại: 1243456789',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text(
                           'Địa chỉ: 123 đường avc phường đfem quận ezdfo',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text('Thời gian dự kiến: 10h00 ngày 14/04/2022',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton(
                             onPressed: () {},
@@ -76,46 +83,37 @@ class _ScheduleTodayState extends State<ScheduleToday> {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: ACSColors.primary),
                   ),
-                  padding: const EdgeInsets.all(16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   margin:
                       const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          const Text('Trạng thái: ',
-                              style: ACSTyphoghraphy.detail),
-                          const SizedBox(width: 10),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 6, horizontal: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.green.shade400,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Row(
-                              children: [
-                                Image.asset('assets/icons/check.png',
-                                    height: 16, width: 16, color: Colors.white),
-                                const SizedBox(width: 10),
-                                Text('Đã nhận',
-                                    style: ACSTyphoghraphy.buttonTitle
-                                        .copyWith(fontWeight: FontWeight.w400)),
-                              ],
-                            ),
-                          ),
-                        ],
+                      RichText(
+                        text: TextSpan(
+                          text: 'Trạng thái: ',
+                          style: ACSTyphoghraphy.detail,
+                          children: [
+                            TextSpan(
+                                text: 'Đã nhận',
+                                style: ACSTyphoghraphy.detail
+                                    .copyWith(color: Colors.green)),
+                          ],
+                        ),
                       ),
                       const Text('Tên khách hàng: Uyên',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text('Số điện thoại: 1243456789',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text(
                           'Địa chỉ: 123 đường avc phường đfem quận ezdfo',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text('Thời gian dự kiến: 10h00 ngày 14/04/2022',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
                     ],
                   ),
                 ),
@@ -125,46 +123,37 @@ class _ScheduleTodayState extends State<ScheduleToday> {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: ACSColors.primary),
                   ),
-                  padding: const EdgeInsets.all(16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   margin:
                       const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          const Text('Trạng thái: ',
-                              style: ACSTyphoghraphy.detail),
-                          const SizedBox(width: 10),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 6, horizontal: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.red.shade300,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Row(
-                              children: [
-                                Image.asset('assets/icons/error.png',
-                                    height: 16, width: 16, color: Colors.white),
-                                const SizedBox(width: 10),
-                                Text('Đã từ chối',
-                                    style: ACSTyphoghraphy.buttonTitle
-                                        .copyWith(fontWeight: FontWeight.w400)),
-                              ],
-                            ),
-                          ),
-                        ],
+                      RichText(
+                        text: TextSpan(
+                          text: 'Trạng thái: ',
+                          style: ACSTyphoghraphy.detail,
+                          children: [
+                            TextSpan(
+                                text: 'Đã hủy',
+                                style: ACSTyphoghraphy.detail
+                                    .copyWith(color: Colors.red)),
+                          ],
+                        ),
                       ),
                       const Text('Tên khách hàng: Uyên',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text('Số điện thoại: 1243456789',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text(
                           'Địa chỉ: 123 đường avc phường đfem quận ezdfo',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
+                      const SizedBox(height: 8),
                       const Text('Thời gian dự kiến: 10h00 ngày 14/04/2022',
-                          style: ACSTyphoghraphy.detail),
+                          style: ACSTyphoghraphy.listTitle),
                     ],
                   ),
                 ),

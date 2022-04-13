@@ -1,6 +1,7 @@
+import 'package:acs_staff/history/order_history.dart';
 import 'package:acs_staff/profile/profile.dart';
 import 'package:acs_staff/schedule/register_schedule.dart';
-import 'package:acs_staff/schedule/schedule.dart';
+import 'package:acs_staff/schedule/schedule_week.dart';
 import 'package:acs_staff/schedule/schedule_today.dart';
 import 'package:acs_staff/styles/acs_colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -67,11 +68,11 @@ class _BuildBottomNavBarState extends State<BuildBottomNavBar> {
           builder: (context) {
             switch (page) {
               case 'Schedule':
-                return const ScheduleScreen();
+                return const ScheduleWeekScreen();
               case 'Profile':
                 return const ProfileScreen();
               case 'History':
-                return Container(color: Colors.green);
+                return const OrderHistoryScreen();
               case 'Today':
                 return const ScheduleToday();
               default:
