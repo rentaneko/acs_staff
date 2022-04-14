@@ -95,6 +95,52 @@ class _RegisterScheduleScreenState extends State<RegisterScheduleScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: ACSColors.primary),
+                    ),
+                    padding: const EdgeInsets.all(16),
+                    margin:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Text(
+                            'Lưu ý',
+                            style: ACSTyphoghraphy.stepTitle
+                                .copyWith(color: Colors.red),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'Ca 1  (Từ 7h30 đến 9h30)',
+                          style: ACSTyphoghraphy.appointmentTitle
+                              .copyWith(color: Colors.black38),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Ca 2  (Từ 9h30 đến 11h30)',
+                          style: ACSTyphoghraphy.appointmentTitle
+                              .copyWith(color: Colors.black38),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Ca 3  (Từ 13h30 đến 15h30)',
+                          style: ACSTyphoghraphy.appointmentTitle
+                              .copyWith(color: Colors.black38),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Ca 4  (Từ 15h30 đến 17h30)',
+                          style: ACSTyphoghraphy.appointmentTitle
+                              .copyWith(color: Colors.black38),
+                        ),
+                      ],
+                    ),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
@@ -185,18 +231,6 @@ class _RegisterScheduleScreenState extends State<RegisterScheduleScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Hủy bỏ',
-                            style: ACSTyphoghraphy.buttonTitle),
-                        style: ElevatedButton.styleFrom(
-                          primary: ACSColors.primary,
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 24),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                        ),
-                      ),
                       ElevatedButton(
                         onPressed: () {},
                         child: const Text('Xóa',

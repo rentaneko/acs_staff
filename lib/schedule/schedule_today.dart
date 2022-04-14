@@ -1,6 +1,8 @@
+import 'package:acs_staff/history/order_detail.dart';
 import 'package:acs_staff/styles/acs_colors.dart';
 import 'package:acs_staff/styles/acs_typhoghraphy.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ScheduleToday extends StatefulWidget {
   const ScheduleToday({Key? key}) : super(key: key);
@@ -77,44 +79,49 @@ class _ScheduleTodayState extends State<ScheduleToday> {
                     ],
                   ),
                 ),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: ACSColors.primary),
-                  ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                  margin:
-                      const EdgeInsets.only(left: 16, right: 16, bottom: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RichText(
-                        text: TextSpan(
-                          text: 'Trạng thái: ',
-                          style: ACSTyphoghraphy.detail,
-                          children: [
-                            TextSpan(
-                                text: 'Đã nhận',
-                                style: ACSTyphoghraphy.detail
-                                    .copyWith(color: Colors.green)),
-                          ],
+                InkWell(
+                  onTap: () {
+                    Get.to(() => OrderDetailScreen());
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: ACSColors.primary),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 16),
+                    margin:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            text: 'Trạng thái: ',
+                            style: ACSTyphoghraphy.detail,
+                            children: [
+                              TextSpan(
+                                  text: 'Đã nhận',
+                                  style: ACSTyphoghraphy.detail
+                                      .copyWith(color: Colors.green)),
+                            ],
+                          ),
                         ),
-                      ),
-                      const Text('Tên khách hàng: Uyên',
-                          style: ACSTyphoghraphy.listTitle),
-                      const SizedBox(height: 8),
-                      const Text('Số điện thoại: 1243456789',
-                          style: ACSTyphoghraphy.listTitle),
-                      const SizedBox(height: 8),
-                      const Text(
-                          'Địa chỉ: 123 đường avc phường đfem quận ezdfo',
-                          style: ACSTyphoghraphy.listTitle),
-                      const SizedBox(height: 8),
-                      const Text('Thời gian dự kiến: 10h00 ngày 14/04/2022',
-                          style: ACSTyphoghraphy.listTitle),
-                    ],
+                        const Text('Tên khách hàng: Uyên',
+                            style: ACSTyphoghraphy.listTitle),
+                        const SizedBox(height: 8),
+                        const Text('Số điện thoại: 1243456789',
+                            style: ACSTyphoghraphy.listTitle),
+                        const SizedBox(height: 8),
+                        const Text(
+                            'Địa chỉ: 123 đường avc phường đfem quận ezdfo',
+                            style: ACSTyphoghraphy.listTitle),
+                        const SizedBox(height: 8),
+                        const Text('Thời gian dự kiến: 10h00 ngày 14/04/2022',
+                            style: ACSTyphoghraphy.listTitle),
+                      ],
+                    ),
                   ),
                 ),
                 Container(

@@ -1,6 +1,8 @@
+import 'package:acs_staff/schedule/edit_schedule.dart';
 import 'package:acs_staff/styles/acs_colors.dart';
 import 'package:acs_staff/styles/acs_typhoghraphy.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ScheduleWeekScreen extends StatefulWidget {
   const ScheduleWeekScreen({Key? key}) : super(key: key);
@@ -22,6 +24,12 @@ class _ScheduleWeekScreenState extends State<ScheduleWeekScreen> {
           centerTitle: true,
           title: const Text('Lịch biểu theo tuần',
               style: ACSTyphoghraphy.titleAppbar),
+          actions: [
+            IconButton(
+              onPressed: () => Get.to(() => EditSchedule()),
+              icon: Icon(Icons.edit),
+            ),
+          ],
         ),
         body: Container(
           margin: const EdgeInsets.only(left: 12, top: 30),
