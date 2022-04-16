@@ -1,17 +1,13 @@
 import 'package:acs_staff/history/order_detail.dart';
+import 'package:acs_staff/schedule/schedule_today.controller.dart';
 import 'package:acs_staff/styles/acs_colors.dart';
 import 'package:acs_staff/styles/acs_typhoghraphy.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ScheduleToday extends StatefulWidget {
+class ScheduleToday extends GetWidget<ScheduleTodayController> {
   const ScheduleToday({Key? key}) : super(key: key);
 
-  @override
-  State<ScheduleToday> createState() => _ScheduleTodayState();
-}
-
-class _ScheduleTodayState extends State<ScheduleToday> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,9 +32,9 @@ class _ScheduleTodayState extends State<ScheduleToday> {
                     border: Border.all(color: ACSColors.primary),
                   ),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   margin:
-                      const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+                  const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -92,7 +88,7 @@ class _ScheduleTodayState extends State<ScheduleToday> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12, vertical: 16),
                     margin:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+                    const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -131,9 +127,9 @@ class _ScheduleTodayState extends State<ScheduleToday> {
                     border: Border.all(color: ACSColors.primary),
                   ),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   margin:
-                      const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+                  const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

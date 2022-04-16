@@ -1,8 +1,5 @@
-import 'package:acs_staff/history/order_history.dart';
-import 'package:acs_staff/profile/profile.dart';
-import 'package:acs_staff/schedule/register_schedule.dart';
-import 'package:acs_staff/schedule/schedule_week.dart';
-import 'package:acs_staff/schedule/schedule_today.dart';
+import 'package:acs_staff/@share/utils/util.dart';
+import 'package:acs_staff/build_nav_bar.controller.dart';
 import 'package:acs_staff/styles/acs_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +7,10 @@ import 'package:get/get.dart';
 import 'package:pandabar/main.view.dart';
 import 'package:pandabar/model.dart';
 
-class BuildBottomNavBar extends StatefulWidget {
+import '@share/router/pages.dart';
+
+class BuildBottomNavBar extends GetWidget<NavBarController> {
   const BuildBottomNavBar({Key? key}) : super(key: key);
-
-  @override
-  State<BuildBottomNavBar> createState() => _BuildBottomNavBarState();
-}
-
-class _BuildBottomNavBarState extends State<BuildBottomNavBar> {
-  String page = 'Home';
 
   @override
   Widget build(BuildContext context) {
@@ -37,48 +29,33 @@ class _BuildBottomNavBarState extends State<BuildBottomNavBar> {
             ],
             buttonData: [
               PandaBarButtonData(
-                id: 'Today',
+                id: 0,
                 icon: CupertinoIcons.doc_text,
                 title: 'Today',
               ),
               PandaBarButtonData(
-                id: 'Schedule',
+                id: 1,
                 icon: Icons.home,
                 title: 'Schedule',
               ),
               PandaBarButtonData(
-                id: 'History',
+                id: 2,
                 icon: Icons.history,
                 title: 'History',
               ),
               PandaBarButtonData(
-                id: 'Profile',
+                id: 3,
                 icon: Icons.person,
                 title: 'Profile',
               ),
             ],
             onChange: (id) {
-              setState(() => page = id);
+              controller.selectIndex(id);
             },
             onFabButtonPressed: () =>
-                Get.to(() => const RegisterScheduleScreen()),
+                goTo(screen: ROUTE_REGISTER_SCHEDULE),
           ),
         ),
-        body: Builder(
-          builder: (context) {
-            switch (page) {
-              case 'Schedule':
-                return const ScheduleWeekScreen();
-              case 'Profile':
-                return const ProfileScreen();
-              case 'History':
-                return const OrderHistoryScreen();
-              case 'Today':
-                return const ScheduleToday();
-              default:
-                return const ScheduleToday();
-            }
-          },
-        ));
+        body: Obx(() => controller.getScreen()));
   }
 }
