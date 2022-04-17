@@ -11,18 +11,26 @@ import '@share/router/pages.dart';
 import 'history/order_history.dart';
 
 class NavBarController extends GetxController {
-
   var _selectedIndex = 0.obs;
 
   var tab = Get.arguments;
 
-  Profile? prof = Profile.fromJson(Get.find<DataStorage>().getToken());
+  Profile? prof;
 
   @override
   void onReady() {
-    if(tab != null){
+    if (tab != null) {
       selectIndex(tab[0]);
     }
+
+    var profile = Get.find<DataStorage>().getToken();
+    if(profile.runtimeType == Profile){
+      prof = profile;
+    }
+    else {
+      prof = Profile.fromJson(profile);
+    }
+
     super.onReady();
   }
 
@@ -41,5 +49,4 @@ class NavBarController extends GetxController {
     Get.find<DataStorage>().setToken(null);
     goToAndRemoveAll(screen: ROUTER_LOGIN);
   }
-
 }

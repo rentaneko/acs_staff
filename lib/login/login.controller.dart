@@ -27,7 +27,7 @@ class LoginController extends GetxController {
   String? validator(String? value) {
     if (value == null ||
         value.isEmpty ||
-        value.length < 10 ||
+        value.length < 5 ||
         value.length > 40) {
       return 'Tên tài khoản không hợp lệ !';
     }
