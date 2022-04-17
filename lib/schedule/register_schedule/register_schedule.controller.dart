@@ -4,8 +4,10 @@ import 'package:acs_staff/@share/constants/value.constant.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../@core/repository/models/Profile.dart';
 import '../../@core/repository/models/Slot.dart';
 import '../../@core/repository/repo/service.repo.dart';
+import '../../@core/repository/storage/data.storage.dart';
 import '../../@share/utils/util.dart';
 
 class RegisterScheduleController extends GetxController {
@@ -81,20 +83,23 @@ class RegisterScheduleController extends GetxController {
 
   callApiCreate(int slotId, String registerDate) async {
     showLoading();
-    await _serviceRepo.createWorkSlot(map: {
-      "register_date": registerDate,
-      "slot_id": slotId.toString(),
-      "staff_id": 19.toString()
-    }) //TODO:
-        .then((value) => {
-              if (value)
-                {
-                  showSnackBar(
-                      title: "Thông báo", content: "Register thành công"),
-                }
-              else
-                showSnackBar(title: "Báo lỗi", content: "createWorkSlot Lỗi"),
-              hideLoading()
-            });
+    Profile? prof = Get.find<DataStorage>().getToken();
+    if(prof != null){
+      await _serviceRepo.createWorkSlot(map: {
+        "register_date": registerDate,
+        "slot_id": slotId.toString(),
+        "staff_id": prof.id.toString()
+      })
+          .then((value) => {
+        if (value)
+          {
+            showSnackBar(
+                title: "Thông báo", content: "Register thành công"),
+          }
+        else
+          showSnackBar(title: "Báo lỗi", content: "createWorkSlot Lỗi"),
+        hideLoading()
+      });
+    }
   }
 }
