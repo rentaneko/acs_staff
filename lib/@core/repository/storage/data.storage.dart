@@ -1,5 +1,7 @@
 import 'package:get_storage/get_storage.dart';
 
+import '../models/Profile.dart';
+
 class DataStorage {
   GetStorage? _storage ;
 
@@ -14,7 +16,7 @@ class DataStorage {
 
   getLogin() => _storage?.read(_login);
 
-  setToken(int? value) async => await _storage?.write(_token, value);
+  setToken(Profile? value) async => await _storage?.write(_token, value);
 
   getToken() => _storage?.read(_token);
 }

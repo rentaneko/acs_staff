@@ -3,6 +3,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../constants/value.constant.dart';
+
 
 widthScreen({int? percent}) =>
     percent != null ? (Get.width * percent) / 100 : Get.width;
@@ -36,7 +38,7 @@ showSnackBar({required String title, required String content }) => Get.snackbar(
 String formatDateTime(String date){
   var dateT = DateTime.tryParse(date);
   if(dateT != null){
-    return DateFormat.yMd().format(dateT);
+    return DateFormat(FORMAT_DAY).format(dateT);
   }
   return '';
 }

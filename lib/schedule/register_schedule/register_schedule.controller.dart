@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:acs_staff/@share/constants/value.constant.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -26,28 +27,28 @@ class RegisterScheduleController extends GetxController {
   registerSlots() {
     for (int i = 1; i <= monday.length; i++) {
       if (monday[i - 1] == true) {
-        var date = DateFormat.yMd().format(mostRecentWeekday(DateTime.now(), 1));
+        var date = DateFormat(FORMAT_DAY).format(mostRecentWeekday(DateTime.now(), 1));
         callApiCreate(i, date);
       }
     }
 
     for (int i = 1; i <= tuesday.length; i++) {
       if (tuesday[i - 1] == true) {
-        var date = DateFormat.yMd().format(mostRecentWeekday(DateTime.now(), 2));
+        var date = DateFormat(FORMAT_DAY).format(mostRecentWeekday(DateTime.now(), 2));
         callApiCreate(i, date);
       }
     }
 
     for (int i = 1; i <= wednesday.length; i++) {
       if (wednesday[i - 1] == true) {
-        var date = DateFormat.yMd().format(mostRecentWeekday(DateTime.now(), 3));
+        var date = DateFormat(FORMAT_DAY).format(mostRecentWeekday(DateTime.now(), 3));
         callApiCreate(i, date);
       }
     }
 
     for (int i = 1; i <= thursday.length; i++) {
       if (thursday[i - 1] == true) {
-        var date = DateFormat.yMd().format(
+        var date = DateFormat(FORMAT_DAY).format(
             mostRecentWeekday(DateTime.now(), 4));
         callApiCreate(i, date);
       }
@@ -55,7 +56,7 @@ class RegisterScheduleController extends GetxController {
 
     for (int i = 1; i <= friday.length; i++) {
       if (friday[i - 1] == true) {
-        var date = DateFormat.yMd().format(
+        var date = DateFormat(FORMAT_DAY).format(
             mostRecentWeekday(DateTime.now(), 5));
         callApiCreate(i, date);
       }
@@ -63,7 +64,7 @@ class RegisterScheduleController extends GetxController {
 
     for (int i = 1; i <= saturday.length; i++) {
       if (saturday[i - 1] == true) {
-        var date = DateFormat.yMd().format(
+        var date = DateFormat(FORMAT_DAY).format(
             mostRecentWeekday(DateTime.now(), 6));
         callApiCreate(i, date);
       }
@@ -71,7 +72,7 @@ class RegisterScheduleController extends GetxController {
 
     for (int i = 1; i <= sunday.length; i++) {
       if (sunday[i - 1] == true) {
-        var date = DateFormat.yMd().format(
+        var date = DateFormat(FORMAT_DAY).format(
             mostRecentWeekday(DateTime.now(), 6).add(const Duration(days: 1)));
         callApiCreate(i, date);
       }

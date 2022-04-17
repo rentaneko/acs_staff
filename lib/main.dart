@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       builder: (_, child) => FlutterEasyLoading(child: child),
-      initialRoute: ROUTER_NAVBAR,
+      initialRoute: ROUTER_LOGIN,
       getPages: Routers.route,
       debugShowCheckedModeBanner: false,
     );
